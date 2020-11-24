@@ -14,12 +14,12 @@ xl_file = input("Please Enter Excel file name : ")
 workbook = openpyxl.load_workbook(xl_file)
 sheet = workbook.get_sheet_by_name('Sheet1')
 print ('#########################################')
+print ('#########################################')
 print ('Policy export in progress ,Please wait :)')
 print ('Policy export in progress ,Please wait :)')
 print ('Policy export in progress ,Please wait :)')
 print ('Policy export in progress ,Please wait :)')
 print ('#########################################')
-print ('Policy export in progress ,Please wait :)')
 print ('#########################################')
 
 
@@ -38,15 +38,12 @@ def srcaddr_fun():
             sheet['B' + str(n)] = src.group(1)
             workbook.save(xl_file)
 
-
-
 def dstaddr_fun():
     if words[1] == 'dstaddr':
         dst = re.search('set dstaddr (".*")', line)
         if dst:
             sheet['C' + str(n)] = dst.group(1)
             workbook.save(xl_file)
-
 
 def srcintf_fun():
     if words[1] == 'srcintf':
@@ -55,18 +52,12 @@ def srcintf_fun():
             sheet['D' + str(n)] = src.group(1)
             workbook.save(xl_file)            
 
-
-
 def dstintf_fun():
     if words[1] == 'dstintf':
         src = re.search('set dstintf (".*")', line)
         if src:
             sheet['E' + str(n)] = src.group(1)
             workbook.save(xl_file)
-
-
-
-
 
 def service_fun():
     if words[1] == 'service':
