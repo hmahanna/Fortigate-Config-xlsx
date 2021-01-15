@@ -1,8 +1,7 @@
-from tqdm import tqdm
 import openpyxl
 import re
 import sys
-import time
+
 
 conf_file = input("Please Enter config file name : ")
 conf_file = conf_file + '.txt'
