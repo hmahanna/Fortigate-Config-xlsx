@@ -1,5 +1,7 @@
 import openpyxl
 import re
+import itertools
+import string
 import sys
 
 
@@ -18,18 +20,19 @@ print ('###################################################')
 print ('###################################################')
 
 
-def FW_Object(object_var,sheet_no):
+def FW_Object(object_var,col_no):
     if words[1] == object_var:
         service = re.search('set %s (.*)' % object_var, line)
         if service:
-            sheet[str(sheet_no) + str(n)] = service.group(1)
+            sheet[str(col_no) + str(n)] = service.group(1)
             workbook.save(xl_file)
 
 
 n=1
 count = 0
-dic = {sys.argv[1] : 'A' , sys.argv[2] : 'B' , sys.argv[3] : 'C' , sys.argv[4] : 'D' , sys.argv[5] : 'E' , sys.argv[6] : 'F' , sys.argv[7] : 'G' }
-
+alpha = string.ascii_uppercase
+col=[]
+col[:]=alpha
 
 with open (conf_file) as f :
     for line in f:
@@ -37,24 +40,33 @@ with open (conf_file) as f :
 
 
 with open (conf_file) as f :
-    for i in range(10000):
+    for i in range(count):
         for line in f :
             if len(line.split()) == 0:
                 continue
+
             line = line.strip()
             words = line.split()
+
             if words[0] == 'edit': # New Policy Entry
                 n = n + 1          # New Policy Entry
             if words[0] == 'end':
                 break
             if words[0] == 'next':
                 break
-            for item in dic.items():
-                FW_Object(item[0],item[1])
+
+            for (item1,item2) in zip(sys.argv[1:] , col):
+                FW_Object(item1,item2)
+
+
             break
 
 
 print ('done')
+
+
+
+
 
 
 
