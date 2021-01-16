@@ -1,1 +1,12 @@
+- Run the following commands to install Python required packages : 
 
+pip install openpyxl 
+pip install regex
+
+
+- download config file from Fortigate FW 
+- copy configuration text starting from : " config firewall policy " to "end" 
+- save the previous copy to txt file and name it 
+- create .xlsx file in the same folder 
+
+- open cmd in the created folder and run the .py file 
