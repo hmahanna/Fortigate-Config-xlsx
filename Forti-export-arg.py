@@ -26,10 +26,8 @@ def FW_Object(object_var,col_no):
         if service:
             sheet[str(col_no) + str(n)] = service.group(1)
             workbook.save(xl_file)
-
-
 n=1
-count = 0
+count = 0 
 alpha = string.ascii_uppercase
 col=[]
 col[:]=alpha
@@ -38,30 +36,22 @@ with open (conf_file) as f :
     for line in f:
         count = count + 1
 
-
 with open (conf_file) as f :
     for i in range(count):
         for line in f :
             if len(line.split()) == 0:
                 continue
-
             line = line.strip()
             words = line.split()
-
             if words[0] == 'edit': # New Policy Entry
                 n = n + 1          # New Policy Entry
             if words[0] == 'end':
                 break
             if words[0] == 'next':
                 break
-
             for (item1,item2) in zip(sys.argv[1:] , col):
                 FW_Object(item1,item2)
-
-
             break
-
-
 print ('done')
 
 
