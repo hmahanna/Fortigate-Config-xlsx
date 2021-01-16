@@ -1,3 +1,4 @@
+- install python 3.8.x
 - Run the following commands to install Python required packages : 
 
 pip install openpyxl 
