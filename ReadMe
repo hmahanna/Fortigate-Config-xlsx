@@ -11,3 +11,18 @@ pip install regex
 - create .xlsx file in the same folder 
 
 - open cmd in the created folder and run the .py file 
+- type : python arg1 arg2 arg3 ..... 
+
+where : 
+arg x is one of the names defined by fortinet configurations as follows :
+ 
+     - srcaddr
+     - dstaddr
+     - srcintf
+     - dstintf
+     - name
+     - action 
+     
+     and so on ........ 
+     
+     
